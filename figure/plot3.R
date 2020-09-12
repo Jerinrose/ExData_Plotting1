@@ -17,13 +17,14 @@ t<-cbind(datetime,t)
 t$datetime <- as.POSIXct(datetime)
 
 #Plot3
+dev.new(width = 480, height = 480, unit = "px")
+par(bg = "white")
 with(t, { plot(Sub_metering_1~datetime, type="l",
-         ylab="Global Active Power (kilowatts)", xlab="")
+         ylab="Energy sub metering", xlab="")
          lines(Sub_metering_2~datetime,col='Red')
          lines(Sub_metering_3~datetime,col='Blue')
 })
-legend("topright", col=c("black", "red", "blue"), lwd=c(1,1,1), 
-       c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", cex = 0.8, legend =  c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lwd = c(2,2,2), col = c("black", "red", "blue"))
 #Saving png
-dev.copy(png,"plot3.png", width=480, height=480)
+dev.copy(png, file = "plot3.png")
 dev.off()
