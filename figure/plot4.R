@@ -32,3 +32,6 @@ with(t, {
   plot(Global_reactive_power~datetime, type="l", 
        ylab="Global Rective Power (kilowatts)",xlab="")
 })
+#Saving png
+dev.copy(png,"plot4.png", width=480, height=480)
+dev.off()
